@@ -460,7 +460,7 @@ app.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const safeRole = role === "admin" ? "admin" : "student";
+    const safeRole = "student";
 
     const user = new userModel({
       email,
@@ -550,7 +550,13 @@ app.delete("/delete/:id", auth, admin, async (req, res) => {
   res.send({ success: true, message: "data deleted successfully", data: data });
 });
 
-mongoose.connect(mongoUri)
+require("dotenv").config();
+
+
+
+console.log("Mongo URL:", process.env.MONGO_URI);
+
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 

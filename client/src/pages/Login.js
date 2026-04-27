@@ -82,6 +82,15 @@ function Login() {
             >
               Login
             </button>
+            <p className='mt-4 text-sm text-slate-500 text-center'>
+  Don’t have an account?
+  <span
+    onClick={() => navigate("/register")}
+    className='ml-1 cursor-pointer text-sky-600 font-semibold'
+  >
+    Register
+  </span>
+</p>
           </div>
         </div>
       </div>

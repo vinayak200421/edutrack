@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // Registers a new account; posts email/password/role and returns nothing.
 function Register() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("student");
 
   // API: POST /register expects email, password, and role.
   const handleRegister = async () => {
@@ -15,11 +16,12 @@ function Register() {
       const res = await axios.post("/register", {
         email,
         password,
-        role,
+        role: "student",
       });
 
       if (res.data.success) {
         toast.success("Registered successfully! Now login.");
+        navigate("/login");
       } else {
         toast.error(res.data.message);
       }
@@ -36,11 +38,10 @@ function Register() {
             EduTrack
           </p>
           <h1 className='mt-6 text-4xl font-bold leading-tight'>
-            Create an account for the new course registration flow.
+            Create a student account for the new course registration flow.
           </h1>
           <p className='mt-4 max-w-md text-sm text-cyan-100/80'>
-            Student accounts get a personal dashboard. Admin accounts can create courses and manage
-            enrollments across the portal.
+            Student accounts get a personal dashboard to explore available courses and track registered classes.
           </p>
         </div>
 
@@ -48,7 +49,7 @@ function Register() {
           <p className='text-xs font-semibold uppercase tracking-[0.35em] text-sky-600'>Create Account</p>
           <h2 className='mt-3 text-3xl font-bold text-slate-900'>Register for EduTrack</h2>
           <p className='mt-3 text-sm text-slate-500'>
-            Pick a role and create the account you want to test with.
+            Create your student account to get started.
           </p>
 
           <div className='mt-8 space-y-5'>
@@ -73,17 +74,7 @@ function Register() {
               />
             </label>
 
-            <label className='block'>
-              <span className='mb-2 block text-sm font-semibold text-slate-700'>Role</span>
-              <select
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-sky-400'
-              >
-                <option value='student'>Student</option>
-                <option value='admin'>Admin</option>
-              </select>
-            </label>
+
 
             <button
               onClick={handleRegister}
@@ -91,6 +82,15 @@ function Register() {
             >
               Register
             </button>
+            <p className='mt-4 text-center text-sm text-slate-500'>
+              Already have an account?
+              <span
+                onClick={() => navigate("/login")}
+                className='ml-1 cursor-pointer font-semibold text-sky-600'
+              >
+                Login
+              </span>
+            </p>
           </div>
         </div>
       </div>
