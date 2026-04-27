@@ -51,15 +51,5 @@ npm start
 ```
 *Note: Ensure your `client/.env` file is configured with `REACT_APP_API_URL=http://localhost:5000`.*
 
-## Application Screenshots
 
-Here are some previews of the application in action:
 
-![Dashboard Preview](https://github.com/SarangaSiriwardhana9/Student-Management-System-Using-MERN-STACK/assets/99233703/24fcd245-1f3b-4bea-ba78-8c0beb148237)
-![Student List](https://github.com/SarangaSiriwardhana9/Student-Management-System-Using-MERN-STACK/assets/99233703/858cc4dd-dd30-4a02-8cdd-cdfddd050010)
-![Details View](https://github.com/SarangaSiriwardhana9/Student-Management-System-Using-MERN-STACK/assets/99233703/61d01603-1aed-4616-b72b-4ed12d50431a)
-![Profile Settings](https://github.com/SarangaSiriwardhana9/Student-Management-System-Using-MERN-STACK/assets/99233703/ce3263a4-1b9d-4ae9-8837-7cbcfff5a591)
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
